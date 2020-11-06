@@ -1,57 +1,96 @@
 #include <stdio.h>
 
+int inputNumber;
+int countNumber = NULL;
+int numberStar2N;
+int numberStar3N;
+
 void star(int);
 void star2(int);
 void star3(int);
 
 void main()
 {
-	star(2);
-	star2(2);
-	star3(2);
+	inputNumber = 3;
+	star(inputNumber);
+	star2(inputNumber);
+	printf("\n");
+	star3(inputNumber);
 }
 
 void star(int n)
 {
-	for (int i = 0; i < n; i++)
+	if (n == 0)
 	{
-		for (int j = 0; j <= i; j++)
+		return;
+	}	
+	
+	star(n - 1);
+
+		for (int j = 0; j < n; j++)
 		{
 			printf("*");
 		}
-		printf("\n");
-	}
+		printf("\n");	
 }
 
 void star2(int n)
-{
-	for (int i = 0; i < n; i++)
+{				
+	if (n == inputNumber)
 	{
-		for (int j = n - 1; j > i; j--)
-		{
-			printf(" ");
-		}
-		for (int a = 0; a <= i * 2; a++)
-		{
-			printf("*");
-		}
-		printf("\n");
+		numberStar2N = n;
 	}
+	if (n == 0)
+	{
+		return;
+	}		
+
+	 star2(n - 1);		
+
+	 int i = numberStar2N;
+
+	for (i -1; i > n ; i--)	 
+	{
+ 		 printf(" ");
+	}
+
+	for (int j = 1; j < n *2; j++)
+	{
+		printf("*");
+	}
+
+	printf("\n");
+
+		
+
 }
 
 void star3(int n)
-{
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < i; j++)
-			{
-				printf(" ");
-			}
-			for (int a = n*2-1; a > i*2; a--)
-			{
-				printf("*");
-			}
-			printf("\n");
-		}
+{	
+	if (inputNumber == n)
+	{
+		numberStar3N = n;
+	}
+	if (n == 0)
+	{
+		return;
+	}
+
+	star3(n - 1);
+
+	int k = numberStar3N;
+	
+
+	for (int j = 1; j < n; j++)
+	{
+		printf(" ");
+	}
+
+	for (int i = k*2-1; i > countNumber*2; i--)
+	{
+		printf("*");
+	}
+		printf("\n");		
+		countNumber++;
 }
 
