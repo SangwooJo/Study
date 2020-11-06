@@ -4,12 +4,12 @@ void star2(int);
 void star3(int);
 
 void main()
-{    
+{
     star(5);
     printf("\n");
-    star2(5,5);
+    star2(5, 5);
     printf("\n");
-    star3(5,5);
+    star3(5, 5);
 }
 
 void star(int n)
@@ -28,21 +28,21 @@ void star(int n)
     printf("\n");
 }
 
-void star2(int nOne,int nTwo)
+void star2(int heightN, int height)
 {
-    if (nOne == 0)
+    if (heightN == 0)
     {
         return;
     }
 
-    star2(nOne - 1,nTwo);    
+    star2(heightN - 1, height);
 
-    for (nTwo - 1; nTwo > nOne; nTwo--)
+    for (height - 1; height > heightN; height--)
     {
         printf(" ");
     }
 
-    for (int j = 1; j < nOne * 2; j++)
+    for (int j = 1; j < heightN * 2; j++)
     {
         printf("*");
     }
@@ -50,27 +50,27 @@ void star2(int nOne,int nTwo)
     printf("\n");
 }
 
-void star3(int nOne,int nTwo)
+void star3(int heightN, int height)
 {
-    if (nOne == 0)
+    if (heightN == 0)
     {
         return;
     }
 
-    star3(nOne - 1, nTwo);
+    star3(heightN - 1, height);
 
-    int k = nOne - 1;
-    
-    for (int j = 1; j < nOne; j++)
+    int k = heightN - 1;
+
+    for (int j = 1; j < heightN; j++)
     {
         printf(" ");
     }
 
-    for (int i = nTwo * 2-1; i > k*2; i--)
+    for (int i = height * 2 - 1; i > k * 2; i--)
     {
         printf("*");
-    }    
+    }
 
-    printf("\n");    
+    printf("\n");
 }
 
