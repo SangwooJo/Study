@@ -57,16 +57,14 @@ void star3(int heightN, int height)
         return;
     }
 
-    star3(heightN - 1, height);
-
-    int k = heightN - 1;
+    star3(heightN - 1, height);    
 
     for (int j = 1; j < heightN; j++)
     {
         printf(" ");
     }
 
-    for (int i = height * 2 - 1; i > k * 2; i--)
+    for (int i = height * 2 - 1; i > (heightN-1) * 2; i--)
     {
         printf("*");
     }
