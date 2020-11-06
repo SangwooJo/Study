@@ -1,15 +1,15 @@
 #include <stdio.h>
 void star(int);
-void star2(int);
-void star3(int);
+void star2(int,int);
+void star3(int,int);
 
 void main()
 {
     star(5);
     printf("\n");
-    star2(5, 5);
+    star2(10, 10);
     printf("\n");
-    star3(5, 5);
+    star3(10, 10);
 }
 
 void star(int n)
@@ -37,9 +37,10 @@ void star2(int heightN, int height)
 
     star2(heightN - 1, height);
 
-    for (height - 1; height > heightN; height--)
-    {
+    for (;height > heightN;height--)
+    {        
         printf(" ");
+
     }
 
     for (int j = 1; j < heightN * 2; j++)
