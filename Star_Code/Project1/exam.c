@@ -1,57 +1,75 @@
 #include <stdio.h>
-
 void star(int);
-void star2(int);
-void star3(int);
+void star2(int,int);
+void star3(int,int);
 
 void main()
 {
-	star(2);
-	star2(2);
-	star3(2);
+    star(5);
+    printf("\n");
+    star2(10, 10);
+    printf("\n");
+    star3(10, 10);
 }
 
 void star(int n)
 {
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = 0; j <= i; j++)
-		{
-			printf("*");
-		}
-		printf("\n");
-	}
+    if (n == 0)
+    {
+        return;
+    }
+
+    star(n - 1);
+
+    for (int j = 0; j < n; j++)
+    {
+        printf("*");
+    }
+    printf("\n");
 }
 
-void star2(int n)
+void star2(int heightN, int height)
 {
-	for (int i = 0; i < n; i++)
-	{
-		for (int j = n - 1; j > i; j--)
-		{
-			printf(" ");
-		}
-		for (int a = 0; a <= i * 2; a++)
-		{
-			printf("*");
-		}
-		printf("\n");
-	}
+    if (heightN == 0)
+    {
+        return;
+    }
+
+    star2(heightN - 1, height);
+
+    for (;height > heightN;height--)
+    {        
+        printf(" ");
+
+    }
+
+    for (int j = 1; j < heightN * 2; j++)
+    {
+        printf("*");
+    }
+
+    printf("\n");
 }
 
-void star3(int n)
+void star3(int heightN, int height)
 {
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < i; j++)
-			{
-				printf(" ");
-			}
-			for (int a = n*2-1; a > i*2; a--)
-			{
-				printf("*");
-			}
-			printf("\n");
-		}
+    if (heightN == 0)
+    {
+        return;
+    }
+
+    star3(heightN - 1, height);    
+
+    for (int j = 1; j < heightN; j++)
+    {
+        printf(" ");
+    }
+
+    for (int i = height * 2 - 1; i > (heightN-1) * 2; i--)
+    {
+        printf("*");
+    }
+
+    printf("\n");
 }
 
