@@ -101,7 +101,6 @@ void merge(int list[], int left, int mid, int right)
             sortTemp[k++] = list[j++];
         }
     }
-
     // 남아 있는 값들을 일괄 복사
     if (i > mid)
     {
