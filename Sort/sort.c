@@ -10,6 +10,7 @@ void merge(int list[], int left, int mid, int right);
 
 int main(void)
 {
+<<<<<<< HEAD
     //int list[6] = { 5,1,6,2,4,3 };
     int list[6] = { 1,2,3,4,5,6 };
     bubbleSort(list, 6);
@@ -17,6 +18,15 @@ int main(void)
 
     //(left : 배열의 시작 위치, right : 배열의 끝)
     //mergeSort(list, 0, 5);
+=======
+    int list[6] = { 5,1,6,2,4,3 };
+
+    //bubbleSort(list, 6);
+    //selectionSort(list, 6);
+
+    //(left : 배열의 시작 위치, right : 배열의 끝)
+    mergeSort(list, 0, 5);
+>>>>>>> 28f6ba8f5b63be515589611bf3afd3c7721d4789
 
     for (int i = 0; i < 6; i++)
     {
@@ -123,4 +133,8 @@ void merge(int list[], int left, int mid, int right)
     {
         list[l] = sortTemp[l];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 28f6ba8f5b63be515589611bf3afd3c7721d4789
