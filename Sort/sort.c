@@ -13,7 +13,7 @@ int main(void)
 {
     int list[6] = { 5,1,6,2,4,3 };
     //int list[6] = { 1,2,3,4,5,6 };
-    bubbleSort(list, 6, 6);
+    bubbleSort(list, 6);
     //selectionSort(list, 6);
 
     //(left : 배열의 시작 위치, right : 배열의 끝)
@@ -31,25 +31,28 @@ int main(void)
     }
 }
 
-void bubbleSort(int list[], int n, int c)
+void bubbleSort(int list[], int n)
 {
+    int tmpC = 0;
     int temp;
+    bool tempBool = true;
 
-    if (n == 0)
+    while (tempBool)
     {
-        return;
-    }
-
-    bubbleSort(list, n - 1, 6);
-
-    for (int j = 0; j < c - 1; j++)
-    {
-        if (list[j] > list[j + 1])
+        for (int j = 0; j < n - 1; j++)
         {
-            temp = list[j];
-            list[j] = list[j + 1];
-            list[j + 1] = temp;
+            if (list[j] > list[j + 1])
+            {
+                temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
+            }
+            if (tmpC > n - 1)
+            {
+                return;
+            }
         }
+        tmpC++;
     }
 }
 
