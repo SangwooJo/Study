@@ -52,7 +52,6 @@ void bubbleSort(int list[], int n)
             }
         }
     }
-    printf("11222\n");
 }
 
 
