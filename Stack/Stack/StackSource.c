@@ -5,23 +5,61 @@
 int arrNumber[MaxSizeNumber];
 int glovalKey = 0;
 
-int input(int number)
-{       
+int push(int number)
+{
     arrNumber[glovalKey] = number;
     glovalKey++;
+}
+int pop()
+{
+    int output = arrNumber[glovalKey - 1];
+    glovalKey--;
+    printf("%i", output);
 }
 
 int main(void)
 {
-    int c = MaxSizeNumber-1;
-    input(2);
-    input(4);
-    input(6);
-    input(8);
-    input(10);
+    push(2);
+    push(4);
+    push(6);
+    push(8);
+    push(10);
 
-    for (; c >= 0;c--)
-    {
-        printf("%i\n", arrNumber[c]);
-    }    
+    pop();
+    printf("\n");
+    pop();
+    printf("\n");
+    pop();
+    printf("\n");
+    pop();
+    printf("\n");
+    pop();
+    printf("\n");
+
+    push(5);
+    pop();
+    printf("\n");
+    push(1);
+    push(5);
+    pop();
+    printf("\n");
+    pop();
+    push(1);
+    push(2);
+    push(3);
+    push(4);
+    push(5);
+    push(6);
+    push(7);
+    push(8);
+    push(9);
+    push(10);
+    printf("\n");
+    pop();
+    printf("\n");
+    pop();
+    printf("\n");
+    push(99);
+    pop();
+    printf("\n");
 }
