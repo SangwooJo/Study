@@ -32,20 +32,22 @@ int main(void)
 
 void bubbleSort(int list[], int n)
 {
+    int noSwap = 0;
     int temp;
     // n개의 배열의 원소를 비교하려면 n-1번 반복해야한다.
-    for (int i = n - 1; i > 0; i--)
+    for (int i = 0; i < temp; i--)
     {
         // list[j]번째자리(인덱스 0의 자리)서 부터 n-1번째 까지 비교.
         for (int j = 0; j < i; j++)
         {
             //list[j]번째자리가 list[j+1j자리보다 클 경우 list배열의 원소자리 교환
-            //if (list[j] > list[j + 1])
-            //{
-            //    temp = list[j];
-            //    list[j] = list[j + 1];
-            //    list[j + 1] = temp;
-            //}
+            if (list[j] > list[j + 1])
+            {
+                temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
+                noSwap = 1;
+            }
         }
     }
 }
