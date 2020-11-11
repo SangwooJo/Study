@@ -36,16 +36,16 @@ void bubbleSort(int list[], int n)
     int tmpC = 0;
     int temp;
     bool tempBool = true;
-
+    
     while (tempBool)
-    {
-        for (int j = 0; j < n - 1; j++)
+    {        
+        for (int j = 0; j < n -1; j++)
         {
             if (list[j] > list[j + 1])
             {
                 temp = list[j];
                 list[j] = list[j + 1];
-                list[j + 1] = temp;
+                list[j + 1] = temp;                
             }
             if (tmpC > n - 1)
             {
