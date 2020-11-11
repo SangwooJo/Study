@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdbool.h>
 #define Size_Max 6
 // 빈 배열
 int sortTemp[Size_Max];
+bool noSwap = true;
 
 void bubbleSort(int list[], int n);
 void selectionSort(int list[], int n);
@@ -22,7 +24,7 @@ int main(void)
     //selectionSort(list, 6);
 
     //(left : 배열의 시작 위치, right : 배열의 끝)
-    mergeSort(list, 0, 5);
+    //mergeSort(list, 0, 5);
 
     for (int i = 0; i < 6; i++)
     {
@@ -32,25 +34,27 @@ int main(void)
 
 void bubbleSort(int list[], int n)
 {
-    int noSwap = 0;
     int temp;
-    // n개의 배열의 원소를 비교하려면 n-1번 반복해야한다.
-    for (int i = 0; i < temp; i--)
+    if (noSwap)
     {
-        // list[j]번째자리(인덱스 0의 자리)서 부터 n-1번째 까지 비교.
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j < n - 1; j++)
         {
-            //list[j]번째자리가 list[j+1j자리보다 클 경우 list배열의 원소자리 교환
+            if (!noSwap)
+            {
+                return;
+            }
             if (list[j] > list[j + 1])
             {
+                noSwap = false;
                 temp = list[j];
                 list[j] = list[j + 1];
                 list[j + 1] = temp;
-                noSwap = 1;
             }
         }
     }
+    printf("11222\n");
 }
+
 
 void selectionSort(int list[], int n)
 {
@@ -132,5 +136,3 @@ void merge(int list[], int left, int mid, int right)
         list[l] = sortTemp[l];
     }
 }
-
-
