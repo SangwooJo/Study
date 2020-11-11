@@ -35,7 +35,6 @@ void bubbleSort(int list[], int n)
 {
     int temp;
     bool nB = false;
-
     while (!nB)
     {
         for (int i = 0; i < n; i++)
@@ -47,7 +46,6 @@ void bubbleSort(int list[], int n)
                     temp = list[j];
                     list[j] = list[j + 1];
                     list[j + 1] = temp;
-
                 }
             }
         }
