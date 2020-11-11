@@ -3,7 +3,6 @@
 #define Size_Max 6
 // ºó ¹è¿­
 int sortTemp[Size_Max];
-bool noSwap = true;
 
 void bubbleSort(int list[], int n);
 void selectionSort(int list[], int n);
@@ -35,6 +34,7 @@ int main(void)
 void bubbleSort(int list[], int n)
 {
     int temp;
+    bool noSwap = true;
     if (noSwap)
     {
         for (int j = 0; j < n - 1; j++)
@@ -136,3 +136,6 @@ void merge(int list[], int left, int mid, int right)
         list[l] = sortTemp[l];
     }
 }
+
+
+
