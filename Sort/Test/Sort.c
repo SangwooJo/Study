@@ -34,22 +34,24 @@ int main(void)
 void bubbleSort(int list[], int n)
 {
     int temp;
-    bool nB = false;
-    while (!nB)
+
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 0; i < n; i++)
+        bool swap = false;
+        for (int j = 0; j < n - 1; j++)
         {
-            for (int j = 0; j < n - 1; j++)
+            if (list[j] > list[j + 1])
             {
-                if (list[j] > list[j + 1])
-                {
-                    temp = list[j];
-                    list[j] = list[j + 1];
-                    list[j + 1] = temp;
-                }
+                temp = list[j];
+                list[j] = list[j + 1];
+                list[j + 1] = temp;
+                swap = true;
             }
         }
-        nB = true;
+        if (!swap)
+        {
+            break;
+        }
     }
 }
 
