@@ -11,9 +11,9 @@ void merge(int list[], int left, int mid, int right);
 
 int main(void)
 {
-    //int list[6] = { 5,1,6,2,4,3 };
-    int list[6] = { 1,2,3,4,5,6 };
-    bubbleSort(list, 6);
+    int list[6] = { 5,1,6,2,4,3 };
+    //int list[6] = { 1,2,3,4,5,6 };
+    bubbleSort(list, 6, 6);
     //selectionSort(list, 6);
 
     //(left : 배열의 시작 위치, right : 배열의 끝)
@@ -31,25 +31,24 @@ int main(void)
     }
 }
 
-void bubbleSort(int list[], int n)
+void bubbleSort(int list[], int n, int c)
 {
     int temp;
-    bool noSwap = true;
-    if (noSwap)
+
+    if (n == 0)
     {
-        for (int j = 0; j < n - 1; j++)
+        return;
+    }
+
+    bubbleSort(list, n - 1, 6);
+
+    for (int j = 0; j < c - 1; j++)
+    {
+        if (list[j] > list[j + 1])
         {
-            if (!noSwap)
-            {
-                return;
-            }
-            if (list[j] > list[j + 1])
-            {
-                noSwap = false;
-                temp = list[j];
-                list[j] = list[j + 1];
-                list[j + 1] = temp;
-            }
+            temp = list[j];
+            list[j] = list[j + 1];
+            list[j + 1] = temp;
         }
     }
 }
@@ -135,6 +134,5 @@ void merge(int list[], int left, int mid, int right)
         list[l] = sortTemp[l];
     }
 }
-
 
 
