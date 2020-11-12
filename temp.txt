@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node // ¿¬°á ¸®½ºÆ®ÀÇ ³ëµå ±¸Á¶Ã¼
+typedef struct node // ì—°ê²° ë¦¬ìŠ¤íŠ¸ì˜ ë…¸ë“œ êµ¬ì¡°ì²´
 {
     int number;
-    struct  node* next; // ´ÙÀ½ ³ëµåÀÇ ÁÖ¼Ò¸¦ ÀúÀåÇÒ Æ÷ÀÎÅÍ
+    struct  node* next; // ë‹¤ìŒ ë…¸ë“œì˜ ì£¼ì†Œë¥¼ ì €ìž¥í•  í¬ì¸í„°
 }
 node;
 
@@ -16,12 +16,12 @@ void selectLinkedList(node* target, int linkedCount);
 int main(void)
 {
     int count = 1;
-    node* list = malloc(sizeof(node)); //target ³ëµå°¡ µÉ ³ëµå¿¡ ¸Þ¸ð¸® ÇÒ´ç 
+    node* list = malloc(sizeof(node)); //target ë…¸ë“œê°€ ë  ë…¸ë“œì— ë©”ëª¨ë¦¬ í• ë‹¹ 
     if (list == NULL)
     {
         return 1;
     }
-    list->next = NULL;  // Ã³À½½ÃÀÛ½Ã target ³ëµåÀÇ ´ÙÀ½³ëµå¿¡ ÃÊ±âÈ­ 
+    list->next = NULL;  // ì²˜ìŒì‹œìž‘ì‹œ target ë…¸ë“œì˜ ë‹¤ìŒë…¸ë“œì— ì´ˆê¸°í™” 
 
     addLinkedList(list, 1);
     addLinkedList(list, 2);
@@ -55,12 +55,12 @@ int main(void)
     //selectLinkedList(list, 5);
     //selectLinkedList(list, 17);
 
-    node* tmp = list->next; // target ³ëµå¸¦ º¹»çÇÒ ÀÓ½Ã ³ëµå »ý¼º
-                                        // º¹»çÇÏ´Â ÀÌÀ¯´Â ³ëµåÀÇ ¸¶Áö¸· ´ÙÀ½ ³ëµåÀÇ NULL°ª ¹æÁö
+    node* tmp = list->next; // target ë…¸ë“œë¥¼ ë³µì‚¬í•  ìž„ì‹œ ë…¸ë“œ ìƒì„±
+                                        // ë³µì‚¬í•˜ëŠ” ì´ìœ ëŠ” ë…¸ë“œì˜ ë§ˆì§€ë§‰ ë‹¤ìŒ ë…¸ë“œì˜ NULLê°’ ë°©ì§€
 
-    while (tmp->next != NULL) // ¸¶Áö¸· ´ÙÀ½³ëµå¿¡¼­ ºÎÅÍ µð½ºÇÃ·¹ÀÌ loop
+    while (tmp->next != NULL) // ë§ˆì§€ë§‰ ë‹¤ìŒë…¸ë“œì—ì„œ ë¶€í„° ë””ìŠ¤í”Œë ˆì´ loop
     {
-        printf("%i¹øÂ° ³ëµåÀÇ °ª %i\n", count, tmp->number);
+        printf("%ië²ˆì§¸ ë…¸ë“œì˜ ê°’ %i\n", count, tmp->number);
         tmp = tmp->next;
         count++;
     }
@@ -73,15 +73,15 @@ int main(void)
 
 void addLinkedList(node* target, int data)  // 'C'
 {
-    node* newNode = malloc(sizeof(node)); // »õ³ëµå¿¡ ¸Þ¸ð¸® ÇÒ´ç
+    node* newNode = malloc(sizeof(node)); // ìƒˆë…¸ë“œì— ë©”ëª¨ë¦¬ í• ë‹¹
     if (newNode == NULL)
     {
         return 1;
     }
-    newNode->next = target->next; // »õ ³ëµåÀÇ ´ÙÀ½ ³ëµå¿¡ target ³ëµåÀÇ ´ÙÀ½ ³ëµå¸¦ ÁöÁ¤
-    newNode->number = data; // »õ³ëµå¿¡ ¸Å°³º¯¼ö nÀÇ °ª ÀúÀå 
+    newNode->next = target->next; // ìƒˆ ë…¸ë“œì˜ ë‹¤ìŒ ë…¸ë“œì— target ë…¸ë“œì˜ ë‹¤ìŒ ë…¸ë“œë¥¼ ì§€ì •
+    newNode->number = data; // ìƒˆë…¸ë“œì— ë§¤ê°œë³€ìˆ˜ nì˜ ê°’ ì €ìž¥ 
 
-    target->next = newNode; // target ³ëµåÀÇ ´ÙÀ½ ³ëµå¿¡ »õ ³ëµå¸¦ ÇÒ´ç
+    target->next = newNode; // target ë…¸ë“œì˜ ë‹¤ìŒ ë…¸ë“œì— ìƒˆ ë…¸ë“œë¥¼ í• ë‹¹
 }
 
 void updateLinkedList(node* target, int linkedCount, int changeValue) // 'U'
@@ -96,9 +96,9 @@ void updateLinkedList(node* target, int linkedCount, int changeValue) // 'U'
     {
         selectNode = selectNode->next;
     }
-    printf("¼±ÅÃµÈ ³ëµå %i¹øÂ° %i°ª", linkedCount, selectNode->number);
+    printf("ì„ íƒëœ ë…¸ë“œ %ië²ˆì§¸ %iê°’", linkedCount, selectNode->number);
     selectNode->number = changeValue;
-    printf(" -> %i°ªÀ¸·Î º¯°æ µÇ¾ú½À´Ï´Ù.\n", changeValue);
+    printf(" -> %iê°’ìœ¼ë¡œ ë³€ê²½ ë˜ì—ˆìŠµë‹ˆë‹¤.\n", changeValue);
 }
 
 void selectLinkedList(node* target, int linkedCount) // 'R'
@@ -113,7 +113,7 @@ void selectLinkedList(node* target, int linkedCount) // 'R'
         selectNode = selectNode->next;
     }
 
-    printf("%i¹øÂ° ³ëµå°¡ ¼±ÅÃµÇ¾ú½À´Ï´Ù. °ªÀº %i ÀÔ´Ï´Ù.\n", linkedCount, selectNode->number);
+    printf("%ië²ˆì§¸ ë…¸ë“œê°€ ì„ íƒë˜ì—ˆìŠµë‹ˆë‹¤. ê°’ì€ %i ìž…ë‹ˆë‹¤.\n", linkedCount, selectNode->number);
 }
 
 void deleteLinkedList(node* target, int linkedCount)

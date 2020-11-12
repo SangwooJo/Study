@@ -1,3 +1,12 @@
 ﻿  linkedlistSource.c
-C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(17,17): warning C4098: 'linkedList': 'void' 함수에서 값을 반환하고 있습니다.
-  LinkedList.vcxproj -> C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\Debug\LinkedList.exe
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(52,27): warning C4047: '함수': 'node *'의 간접 참조 수준이 'node **'과(와) 다릅니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(52,22): warning C4024: 'deleteLinkedList': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(52,32): warning C4047: '함수': 'int'의 간접 참조 수준이 'node *'과(와) 다릅니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(52,28): warning C4024: 'deleteLinkedList': 형식 및 실제 매개 변수 2의 형식이 서로 다릅니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(52,34): warning C4020: 'deleteLinkedList': 실제 매개 변수가 너무 많습니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(79,17): warning C4098: 'addLinkedList': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(92,17): warning C4098: 'updateLinkedList': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(109,17): warning C4098: 'selectLinkedList': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(124,17): warning C4098: 'deleteLinkedList': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(132,12): warning C4477: 'printf' : 서식 문자열 '%i'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'node *'입니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\LinkedList\LinkedList\linkedlistSource.c(121,1): error C2440: '초기화 중': 'node'에서 'node *'(으)로 변환할 수 없습니다.
