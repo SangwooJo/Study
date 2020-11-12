@@ -17,12 +17,12 @@ int main(void)
 {
     int count = 1;
     int nCount;
-    Head = malloc(sizeof(node)); //target 노드가 될 노드에 메모리 할당 
+    Head = malloc(sizeof(node));
     if (Head == NULL)
     {
         return 1;
     }
-    Head->next = NULL;  // 처음시작시 target 노드의 다음노드에 초기화 
+    Head->next = NULL; 
 
     addLinkedHead(Head, 1);
     addLinkedHead(Head, 2);
