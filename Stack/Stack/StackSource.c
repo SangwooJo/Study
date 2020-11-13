@@ -83,7 +83,7 @@ void deleteLayer(int layerNumber) // 'D'
 {
     int tempHigh[MaxSizeNumber];
     int tempLow[MaxSizeNumber];
-    int tempMaster[MaxSizeNumber];
+    int tempMaster[MaxSizeNumber] = { 0,0,0,0,0 };
 
     for (int i = layerNumber; i < glovalKey; i++)
     {
