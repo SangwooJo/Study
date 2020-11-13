@@ -11,8 +11,8 @@ void merge(int list[], int left, int mid, int right);
 
 int main(void)
 {
-    //int list[6] = { 5,1,6,2,4,3 };
-    int list[6] = { 1,2,3,4,5,6 };
+    int list[6] = { 5,1,6,2,4,3 };
+    //int list[6] = { 1,2,3,4,5,6 };
     bubbleSort(list, 6);
     //selectionSort(list, 6);
 
@@ -38,7 +38,7 @@ void bubbleSort(int list[], int n)
     for (int i = 0; i < n; i++)
     {
         bool swap = false;
-        for (int j = 0; j < n - 1; j++)
+        for (int j = 0; j < n - i - 1; j++)
         {
             if (list[j] > list[j + 1])
             {
