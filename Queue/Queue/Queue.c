@@ -2,28 +2,14 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #define MaxSizeNumber 100
-
 int arrNumber[MaxSizeNumber];
 int glovalKey = 0;
 int queueCount = 0;
 
-int push(int number)
-{
-    arrNumber[glovalKey] = number;
-    glovalKey++;
-}
-void pop()
-{
-    if (glovalKey == queueCount)
-    {
-        printf("empty\n");
-    }
-    else
-    {
-        printf("%i\n", arrNumber[queueCount]);
-        queueCount++;
-    }
-}
+void push(int number);
+void updateLayer(int layerNumber, int chageValue);
+void deleteLayer(int layerNumber);
+int pop();
 
 int main(void)
 {
@@ -38,31 +24,83 @@ int main(void)
     push(8);
     push(9);
 
-    pop();
-    pop();
-    push(8);
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
+    updateLayer(0, 10);
+    updateLayer(1, 200);
+    printf("%i \n", pop());
+    push(10);
+    deleteLayer(1);
+    printf("%i \n", pop());
 
-    push(22);
-    pop();
+    printf("%i \n", pop());
+    push(11);
+    push(12);
+    push(13);
+    push(14);
+    push(15);
 
-    pop();
-    pop();
-    pop();
-    pop();
-    pop();
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+    printf("%i \n", pop());
+}
+void push(int number) // 'C'
+{
+    arrNumber[glovalKey] = number;
+    glovalKey++;
+}
+int pop() // 'R'
+{
+    if (glovalKey == queueCount)
+    {
+        printf("Empty Value ");
+        return 0;
+    }
+    else
+    {
+        int output = arrNumber[queueCount];
+        queueCount++;
+        return output;
+    }
+}
+void updateLayer(int layerNumber, int chageValue) // 'U'
+{
+    arrNumber[layerNumber] = chageValue;
+}
+void deleteLayer(int layerNumber) // 'D'
+{
+    int tempHigh[MaxSizeNumber];
+    int tempLow[MaxSizeNumber];
+    int tempMaster[MaxSizeNumber];
 
-    push(123);
-    push(456);
-    push(789);
-    pop();
-
-    push(20);
-    pop();
-    pop();
-    pop();
+    for (int i = layerNumber; i < glovalKey; i++)
+    {
+        tempHigh[i] = arrNumber[i + 1];
+        tempMaster[i] = tempHigh[i];
+    }
+    for (int i = 0; i < layerNumber; i++)
+    {
+        tempLow[i] = arrNumber[i];
+        tempMaster[i] = tempLow[i];
+    }
+    for (int i = 0; i < glovalKey; i++)
+    {
+        arrNumber[i] = tempMaster[i];
+    }
+    glovalKey--;
 }

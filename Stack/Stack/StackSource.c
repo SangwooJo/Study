@@ -21,13 +21,13 @@ int main(void)
     push(4);
     push(5);
 
-    //updateLayer(0, 15);
+    updateLayer(0, 15);
 
     deleteLayer(1);
     deleteLayer(5);
     deleteLayer(4);
 
-    printf("%i\n",pop());
+    printf("%i\n", pop());
     printf("%i\n", pop());
     printf("%i\n", pop());
     printf("%i\n", pop());
@@ -45,9 +45,9 @@ int main(void)
     push(15);
     push(16);
     push(17);
-    push(18);    
-    push(19);    
-    push(20);    
+    push(18);
+    push(19);
+    push(20);
 
     printf("%i\n", pop());
     printf("%i\n", pop());
@@ -74,47 +74,45 @@ int main(void)
     printf("%i\n", pop());
     printf("%i\n", pop());
     printf("%i\n", pop());
-
-
 }
-void updateLayer(int layerNumber, int chageValue)
+void updateLayer(int layerNumber, int chageValue) // 'U'
 {
     arrNumber[layerNumber] = chageValue;
 }
-void deleteLayer(int layerNumber)
-{            
+void deleteLayer(int layerNumber) // 'D'
+{
     int tempHigh[MaxSizeNumber];
     int tempLow[MaxSizeNumber];
-    int tempMaster[MaxSizeNumber];   
+    int tempMaster[MaxSizeNumber];
 
     for (int i = layerNumber; i < glovalKey; i++)
     {
-        tempHigh[i] = arrNumber[i+1];
+        tempHigh[i] = arrNumber[i + 1];
         tempMaster[i] = tempHigh[i];
     }
     for (int i = 0; i < layerNumber; i++)
     {
         tempLow[i] = arrNumber[i];
         tempMaster[i] = tempLow[i];
-    }    
+    }
     for (int i = 0; i < glovalKey; i++)
-    {        
+    {
         arrNumber[i] = tempMaster[i];
-    }            
+    }
     glovalKey--;
 }
-void push(int number)
+void push(int number) // 'C'
 {
     arrNumber[glovalKey] = number;
     glovalKey++;
 }
-int pop()
-{            
-        int output = arrNumber[glovalKey-1];
-        if (output == 0)
-        {
-            printf("empty value ", output);
-        }
-        glovalKey--;
-        return output;
+int pop() // 'R'
+{
+    int output = arrNumber[glovalKey - 1];
+    if (output == 0)
+    {
+        printf("empty value ");        
+    }
+    glovalKey--;
+    return output;
 }
