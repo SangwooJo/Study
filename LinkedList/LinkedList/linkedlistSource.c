@@ -8,63 +8,69 @@ typedef struct node // 연결 리스트의 노드 구조체
 }
 node;
 struct  node* Head;
-int addLinkedHead(node* target, int data);
-int updateLinkedHead(node* target, int index, int changeValue);
+int nodeNumber = 0;
+int addLinkedHead(int data);
+int updateLinkedHead(int index, int changeValue);
 int deleteLinkedHead(int index);
-int selectLinkedHead(node* target, int index);
+int selectLinkedHead(int index);
 int insertLinkedHead(int index, int addValue);
 
 int main(void)
 {
-    int count = 1;
     Head = malloc(sizeof(node));
+    int numberCount = 1;
+
     if (Head == NULL)
     {
         return 1;
     }
     Head->next = NULL;
 
-    addLinkedHead(Head, 1);
-    addLinkedHead(Head, 2);
-    addLinkedHead(Head, 3);
-    addLinkedHead(Head, 4);
-    addLinkedHead(Head, 5);
-    addLinkedHead(Head, 6);
-    addLinkedHead(Head, 7);
-    addLinkedHead(Head, 8);
-    addLinkedHead(Head, 9);
-    addLinkedHead(Head, 10);
-    addLinkedHead(Head, 11);
-    addLinkedHead(Head, 12);
-    addLinkedHead(Head, 13);
-    addLinkedHead(Head, 14);
-    addLinkedHead(Head, 15);
-    addLinkedHead(Head, 16);
-    addLinkedHead(Head, 17);
-    addLinkedHead(Head, 18);
-    addLinkedHead(Head, 19);
-    addLinkedHead(Head, 20);
+    //Create
+    addLinkedHead(1);
+    addLinkedHead(2);
+    addLinkedHead(3);
+    addLinkedHead(4);
+    addLinkedHead(5);
+    addLinkedHead(6);
+    addLinkedHead(7);
+    addLinkedHead(8);
+    addLinkedHead(9);
+    addLinkedHead(10);
+    addLinkedHead(11);
+    addLinkedHead(12);
+    addLinkedHead(13);
+    addLinkedHead(14);
+    addLinkedHead(15);
+    addLinkedHead(16);
+    addLinkedHead(17);
+    addLinkedHead(18);
+    addLinkedHead(19);
+    addLinkedHead(20);
 
-    //updateLinkedHead(Head, 1, 22);
-
-    //deleteLinkedHead(5);
-
+    //Update
+    updateLinkedHead(1, 22);
+    //Delete
+    deleteLinkedHead(5);
+    //Insert
     insertLinkedHead(3, 99);
 
     node* tmp = Head->next; // target 노드를 복사할 임시 노드 생성
-                                             // 복사하는 이유는 노드의 마지막 다음 노드의 NULL값 방지
+                                             // 복사하는 이유는 노드의 마지막 다음 노드의 NULL값 방지    
 
     while (1) // 마지막 다음노드에서 부터 디스플레이 loop
     {
         if (tmp->next != NULL)
         {
-            printf("노드의 값: %i\n", selectLinkedHead(Head, count));
+            //Select
+            printf("%i 번째 노드의 값: %i\n", numberCount, selectLinkedHead(nodeNumber));
             tmp = tmp->next;
-            count++;
+            nodeNumber--;
+            numberCount++;
         }
         else
         {
-            printf("노드의 값: %i\n", selectLinkedHead(Head, count));
+            printf("%i 번째 노드의 값: %i\n", numberCount, selectLinkedHead(nodeNumber));
             break;
         }
     }
@@ -75,28 +81,33 @@ int main(void)
     return 0;
 }
 
-int addLinkedHead(node* target, int data)  // 'C'
+int addLinkedHead(int data)  // 'C'
 {
     node* newNode = malloc(sizeof(node)); // 새노드에 메모리 할당
     if (newNode == NULL)
     {
+        printf("addLinkedHead return 1");
         return 1;
     }
     newNode->next = Head->next; // 새 노드의 다음 노드에 target 노드의 다음 노드를 지정
     newNode->number = data; // 새노드에 매개변수 n의 값 저장 
 
-    target->next = newNode; // target 노드의 다음 노드에 새 노드를 할당
+    Head->next = newNode; // target 노드의 다음 노드에 새 노드를 할당    
+    nodeNumber++;
     return 0;
 }
 
-int updateLinkedHead(node* target, int index, int changeValue) // 'U'
+int updateLinkedHead(int index, int changeValue) // 'U'
 {
-    node* selectNode = target->next;
+    int n = nodeNumber - index;
+    node* selectNode = malloc(sizeof(node));
+    selectNode = Head->next;
     if (selectNode == NULL)
     {
+        printf("updateLinkedHead return 1");
         return 1;
     }
-    for (int i = 1; i <= index; i++)
+    for (int i = 0; i < n; i++)
     {
         selectNode = selectNode->next;
     }
@@ -104,57 +115,69 @@ int updateLinkedHead(node* target, int index, int changeValue) // 'U'
     return 0;
 }
 
-int selectLinkedHead(node* target, int index) // 'R'
+int selectLinkedHead(int index) // 'R'
 {
-    node* selectNode = target;
+    node* selectNode = malloc(sizeof(node));
+    selectNode = Head->next;
     if (selectNode == NULL)
     {
+        printf("selectLinkedHead return 1");
         return 1;
     }
-    for (int i = 1; i <= index; i++)
+    for (int i = 1; i < index; i++)
     {
         selectNode = selectNode->next;
     }
-    return selectNode->number;
+    int output = selectNode->number;
+    return output;
 }
 
 int deleteLinkedHead(int index) // 'D'
 {
+    int n = nodeNumber - index;
     node* temp1 = Head;
-    if (index == 1)
+
+    if (temp1 == NULL)
     {
-        Head = temp1->next;
-        free(temp1);
-        return 0;
+        printf("deleteLinkedHead return 1");
+        return 1;
     }
-    for (int i = 1; i <= index - 1; i++)
+    for (int i = 0; i < n; i++)
     {
         temp1 = temp1->next;
     }
     node* temp2 = temp1->next;
     temp1->next = temp2->next;
     free(temp2);
+    nodeNumber--;
     return 0;
 }
 int insertLinkedHead(int index, int addValue)
 {
-    node* new_node = malloc(sizeof(node));
-    new_node->number = addValue;
-    new_node->next = NULL;
-    if (index == 1)
+    int n = nodeNumber - index;
+    node* newNode = malloc(sizeof(node));
+    newNode->number = addValue;
+    newNode->next = NULL;
+    if (newNode == NULL)
     {
-        new_node->next = Head;
-        Head = new_node;
-        return 0;
+        printf("insertLinkedHead return 1");
+        return 1;
     }
-    node* temp2 = Head;
 
-    for (int i = 1; i <= index; i++)
+    node* temp2 = Head;
+    if (temp2 == NULL)
+    {
+        printf("insertLinkedHead return 2");
+        return 2;
+    }
+
+    for (int i = 0; i < n; i++)
     {
         temp2 = temp2->next;
     }
 
-    new_node->next = temp2->next;
-    temp2->next = new_node;
+    newNode->next = temp2->next;
+    temp2->next = newNode;
+    nodeNumber++;
     return 0;
 }
