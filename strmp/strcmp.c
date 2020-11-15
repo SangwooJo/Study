@@ -2,37 +2,35 @@
 
 int main(void)
 {
-    char *s1 = "sangwoo";
-    char *s2 = "sangwoo";
-    strmp(s1, s2);
+    char* s1 = "sangwoo";
+    char* s2 = "sangwoo";
 
     if (strmp(s1, s2) == 0)
     {
-        printf("문자열 비교 성공");
+        printf("[%s] == [%s]\n", s1, s2);
+        printf("Success in strmp function");
     }
 }
 
-int strmp(char *s1, char *s2)
+int strmp(char* s1, char* s2)
 {
+    int countNumber = 1;
     char c1, c2;
 
     while (1)
-    {
-        // s1, s2 문자열에서 순서대로 한글자씩 가져온다.
+    {        
         c1 = *s1++;
-        c2 = *s2++;
-
-        // 한글자씩 비교하고 다르면 1을 리턴
+        c2 = *s2++;        
         if (c1 != c2)
-        {            
-            printf("똑같지 않다");
+        {
+            printf("it's not same\n");
+            printf("you have to fix---> %i : %c != %c\n", countNumber, c1, c2);
             return 1;
         }
         else
-        {
-            // 같으면 정상종료
-            printf("똑같다");
+        {            
+            printf("it's same\n");
             return 0;
-        }            
+        }
     }
 }
