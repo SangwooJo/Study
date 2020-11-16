@@ -1,0 +1,4 @@
+﻿  strcmp.c
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\C Language\Strmp\strcmp\strcmp\strcmp.c(19,1): warning C4047: '초기화 중': 'char *'의 간접 참조 수준이 'char **'과(와) 다릅니다.
+C:\Users\dlfcn\OneDrive\문서\GitHub\Study\C Language\Strmp\strcmp\strcmp\strcmp.c(20,1): warning C4047: '초기화 중': 'char *'의 간접 참조 수준이 'char **'과(와) 다릅니다.
+  strcmp.vcxproj -> C:\Users\dlfcn\OneDrive\문서\GitHub\Study\C Language\Strmp\strcmp\Debug\strcmp.exe
