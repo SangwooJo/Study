@@ -24,9 +24,9 @@ int strcmp(char* s1, char* s2)
     {
         // 문자열의 글자를 하나씩 ++;
         c1 = *s1++;
-        printf("%p -- c1\n", *&s1);
+        printf("%p -- %c\n", *&s1, *s1);
         c2 = *s2++;
-        printf("%p -- c2\n", *&s2);
+        printf("%p -- %c\n", *&s2, *s2);
         if (c1 != c2)
         {
             return 1;
