@@ -1,14 +1,18 @@
 #include <stdio.h>
+
 int strcmp(char* s1, char* s2);
 int main(void)
 {
-    char* s1 = "saa1ngwoo";
-    char* s2 = "sa1ngwoo";
+    char* s1 = "san4gwoo";
+    char* s2 = "saa2ngwoo";
 
     if (strcmp(s1, s2) == 0)
     {
-        printf("[%s] == [%s]\n", s1, s2);
-        printf("Success in strmp function");
+        printf("same....[%s] == [%s]\n", s1, s2);        
+    }
+    if (strcmp(s1, s2) == 1)
+    {
+        printf("not same....[%s] != [%s]\n", s1, s2);        
     }
 }
 int strcmp(char* s1, char* s2)
@@ -25,14 +29,12 @@ int strcmp(char* s1, char* s2)
         c2 = *s2++;
         if (c1 != c2)
         {
-            printf("it's not same\n");
-            printf("you have to fix---> %i : %c != %c\n", countNumber, c1, c2);
             return 1;
         }
-        if (*xAdress == *yAdress)
+        if (c1 == NULL || c2 == NULL)
         {
-            printf("it's same\n");
-            return 0;
+            break;
         }
-    }
+    }    
+    return 0;
 }
